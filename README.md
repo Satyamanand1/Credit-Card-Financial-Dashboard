@@ -90,19 +90,19 @@ The dashboard provides **real-time weekly insights** into revenue, customer demo
 ```text
 Credit-Card-Financial-Dashboard
 │
-├── Dataset
-│   ├── customer.csv
-│   ├── credit_card.csv
-│   ├── cust_add.csv
-│   └── cc_add.csv
-│
-├── SQL
-│   └── Sql_Queries.sql
+├── Credit_Card_Financial_Dashboard_Report
+│   ├── Credit_Card_Financial_Dashboard_Report.pptx
 │
 ├── Dashboard
 │   ├── Credit_Card_Financial_Dashboard.pbix
 │   ├── Credit Card Customer Dashboard.pdf
 │   └── Credit Card Transaction Dashboard.pdf
+│
+├── Dataset
+│   ├── customer.csv
+│   ├── credit_card.csv
+│   ├── cust_add.csv
+│   └── cc_add.csv
 │
 ├── Images
 │   ├── customer_dashboard.png
@@ -110,6 +110,9 @@ Credit-Card-Financial-Dashboard
 │   ├── postgresql_import.png
 │   ├── data_model.png
 │   └── week53_update.png
+│
+├── SQL
+│   └── Sql_Queries.sql
 │
 └── README.md
 ```
