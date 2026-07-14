@@ -272,10 +272,7 @@ The Customer Report focuses on customer demographics, income distribution, satis
 - Interactive U.S. Map
 - Dynamic slicers for Quarter, Gender, and Card Category
 
-> **Dashboard Preview**
-
-
-Images/customer_dashboard.png
+![Customer Report Dashboard Preview](Images/customer_dashboard.png)
 
 
 ---
@@ -303,10 +300,7 @@ The Transaction Report provides financial insights into transaction behavior, ex
 - Quarterly Transaction Comparison
 - Dynamic slicers for Week Number, Quarter, and Gender
 
-> **Dashboard Preview**
-
-
-Images/transaction_dashboard.png
+![Transaction Report Dashboard Preview](Images/transaction_dashboard.png)
 
 
 ---
