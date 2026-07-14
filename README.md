@@ -15,7 +15,7 @@
 
 # Overview
 
-![Credit Card Financial Dashboard](Dashboard/Credit_Card_Financial_Dashboard.pbix)
+[Credit Card Financial Dashboard](Dashboard/Credit_Card_Financial_Dashboard.pbix)
 
 This project is an **end-to-end Business Intelligence solution** built using **Power BI**, **PostgreSQL**, **SQL**, **Power Query**, **DAX**, and **Microsoft Excel** to analyze credit card customer behavior and transaction performance.
 
