@@ -15,9 +15,15 @@
 
 # 📖 Overview
 
+![Credit Card Financial Dashboard](Dashboard/Credit_Card_Financial_Dashboard.pbix)
+
 This project is an **end-to-end Business Intelligence solution** built using **Power BI**, **PostgreSQL**, **SQL**, **Power Query**, **DAX**, and **Microsoft Excel** to analyze credit card customer behavior and transaction performance.
 
 The dashboard provides **real-time weekly insights** into revenue, customer demographics, transaction trends, spending behavior, and financial KPIs. It also demonstrates a production-style workflow by importing raw CSV files into PostgreSQL, building a relational data model, and refreshing Power BI dashboards with newly available weekly data.
+
+![Transaction Report Dashboard Preview](Images/transaction_dashboard.png)
+
+![Updated Customer Report Week53 Dashboard Preview](Images/week53_update.png)
 
 ---
 
@@ -140,6 +146,8 @@ Contains transaction information including:
 - Credit Limit
 
 Both datasets are connected through **client_num**, creating a relational model inside Power BI.
+
+![Data Model](Images/data_model.png)
 
 ---
 
@@ -308,6 +316,8 @@ The Transaction Report provides financial insights into transaction behavior, ex
 # 💡 Key Business Insights
 
 The following insights were derived from the complete **10,293-record** dataset after incorporating the Week 53 update.
+
+![Updated Customer Report Week53 Dashboard Preview](Images/week53_update.png)
 
 ---
 
