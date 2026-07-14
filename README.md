@@ -220,6 +220,7 @@ Published business insights through Power BI visualizations.
 ---
 
 # Incremental Weekly Update (Week 52 → Week 53)
+![Incremental Weekly Update](Images/customer_dashboard.png,Images/week53_update.png)
 
 The dashboard initially covered data through **24 Dec 2023 (Week 52)**. When **31 Dec 2023 (Week 53)** data became available, it was appended directly into PostgreSQL using two additional CSV files instead of rebuilding the report.
 
