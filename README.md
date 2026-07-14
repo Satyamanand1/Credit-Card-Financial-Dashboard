@@ -1,4 +1,4 @@
-# 💳 Credit Card Financial Dashboard using Power BI & PostgreSQL
+# 💳 Credit Card Financial Dashboard
 
 <p align="center">
 
@@ -13,82 +13,62 @@
 
 ---
 
-# 📌 Project Overview
+# 📖 Overview
 
-The **Credit Card Financial Dashboard** is an end-to-end Business Intelligence project developed using **Power BI**, **PostgreSQL**, **SQL**, **Power Query**, **DAX**, and **Microsoft Excel**.
+This project is an **end-to-end Business Intelligence solution** built using **Power BI**, **PostgreSQL**, **SQL**, **Power Query**, **DAX**, and **Microsoft Excel** to analyze credit card customer behavior and transaction performance.
 
-The objective of this project is to provide **real-time weekly insights** into credit card transactions and customer behavior, enabling stakeholders to monitor KPIs, identify business trends, analyze customer demographics, and make data-driven decisions.
-
-Unlike a basic dashboard project, this solution simulates a **real-world data pipeline** where raw Excel datasets are imported into PostgreSQL, transformed through SQL and Power Query, modeled inside Power BI, and finally visualized through interactive dashboards.
-
-The project also demonstrates **incremental weekly data updates** by loading **Week 53 (31 December 2023)** records into PostgreSQL and refreshing the dashboard without redesigning the report.
+The dashboard provides **real-time weekly insights** into revenue, customer demographics, transaction trends, spending behavior, and financial KPIs. It also demonstrates a production-style workflow by importing raw CSV files into PostgreSQL, building a relational data model, and refreshing Power BI dashboards with newly available weekly data.
 
 ---
 
-# 🚀 Project Objectives
+# 🎯 Project Highlights
 
-✔ Build an end-to-end Business Intelligence solution
-
-✔ Import Excel data into PostgreSQL
-
-✔ Perform SQL-based data storage and querying
-
-✔ Create a relational data model
-
-✔ Design dynamic Power BI dashboards
-
-✔ Build DAX measures for KPIs
-
-✔ Monitor weekly business performance
-
-✔ Analyze customer demographics
-
-✔ Track transaction performance
-
-✔ Demonstrate incremental database updates
-
-✔ Refresh dashboards automatically after database updates
+- Built an interactive **Power BI dashboard** with two analytical reports.
+- Imported and managed datasets using **PostgreSQL**.
+- Loaded CSV files using PostgreSQL's **COPY** command.
+- Connected PostgreSQL directly with Power BI.
+- Designed a relational data model using **client_num**.
+- Created DAX measures for KPI calculations.
+- Built dynamic visualizations with slicers and drill-down capabilities.
+- Simulated a real-world incremental data refresh by loading **Week 53** data without rebuilding the dashboard.
 
 ---
 
-# 🏗 Project Architecture
+# 🏗️ Project Architecture
 
-```
-
-              Excel Dataset
-                     │
-                     ▼
-              CSV Conversion
-                     │
-                     ▼
-            PostgreSQL Database
-                     │
-        ┌────────────┴────────────┐
-        │                         │
-Customer_Detail Table      CreditCard_Detail Table
-        │                         │
-        └────────────┬────────────┘
-                     │
-                SQL Queries
-                     │
-                     ▼
-              Power BI Desktop
-                     │
-        ┌────────────┴─────────────┐
-        │                          │
-Customer Dashboard        Transaction Dashboard
-                     │
-                     ▼
-             Business Insights
-
+```text
+                Excel Dataset
+                      │
+                CSV Conversion
+                      │
+                      ▼
+             PostgreSQL Database
+                      │
+        ┌─────────────┴─────────────┐
+        │                           │
+ Customer_Detail             CreditCard_Detail
+        │                           │
+        └─────────────┬─────────────┘
+                      │
+                 SQL Queries
+                      │
+                      ▼
+               Power BI Desktop
+                      │
+      ┌───────────────┴──────────────┐
+      │                              │
+ Customer Dashboard         Transaction Dashboard
+                      │
+                      ▼
+              Business Insights
 ```
 
 ---
 
-# 🧰 Tech Stack
+# 🛠 Tech Stack
 
 | Technology | Purpose |
-|------------|----------|
+|------------|---------|
 | Power BI | Dashboard Development |
 | PostgreSQL | Database Management |
 | SQL | Data Querying |
@@ -96,817 +76,427 @@ Customer Dashboard        Transaction Dashboard
 | DAX | KPI Calculations |
 | Microsoft Excel | Raw Dataset |
 | CSV | Data Import |
-| pgAdmin 4 | PostgreSQL Administration |
 
 ---
 
 # 📂 Repository Structure
 
-```
-
-Credit-Card-Financial-Dashboard/
-
+```text
+Credit-Card-Financial-Dashboard
 │
-
-├── Dataset/
-
-│ ├── credit_card.csv
-
-│ ├── customer.csv
-
-│ ├── cc_add.csv
-
-│ └── cust_add.csv
-
+├── Dataset
+│   ├── customer.csv
+│   ├── credit_card.csv
+│   ├── cust_add.csv
+│   └── cc_add.csv
 │
-
-├── SQL/
-
-│ ├── Sql_Quries.sql
-
+├── SQL
+│   └── Sql_Queries.sql
 │
-
-├── Dashboard/
-
-│ ├── Credit_Card_Financial_Dashboard.pbix
-
-│ ├── Credit Card Customer Dashboard.pdf
-
-│ ├── Credit Card Transaction Dashboard.pdf
-
+├── Dashboard
+│   ├── Credit_Card_Financial_Dashboard.pbix
+│   ├── Credit Card Customer Dashboard.pdf
+│   └── Credit Card Transaction Dashboard.pdf
 │
-
-├── Images/
-
-│ ├── customer_dashboard.png
-
-│ ├── transaction_dashboard.png
-
-│ ├── data_model.png
-
-│ ├── postresql_import.png
-
-│ └── week53_update.png
-
+├── Images
+│   ├── customer_dashboard.png
+│   ├── transaction_dashboard.png
+│   ├── postgresql_import.png
+│   ├── data_model.png
+│   └── week53_update.png
 │
-
 └── README.md
-
 ```
 
 ---
 
-# 📊 Dataset Information
+# 🗄️ Data Pipeline
 
-The project consists of **two datasets**.
+The project uses two relational datasets:
 
-## 1️⃣ Credit Card Detail
+### Customer Dataset
+Contains customer demographics including:
 
-Contains transaction-related information including:
-
-- Client Number
-- Card Category
-- Credit Limit
-- Revenue
-- Interest Earned
-- Annual Fees
-- Transaction Amount
-- Transaction Count
-- Expenditure Type
-- Quarter
-- Week Number
-- Revenue
-- Activation Days
-- Utilization Ratio
-- Revolving Balance
-
----
-
-## 2️⃣ Customer Detail
-
-Contains customer demographic information such as:
-
-- Client Number
+- Age
 - Gender
 - Income
 - Education
-- Age
 - Occupation
 - State
-- Marital Status
 - Dependents
-- Home Owner
-- Car Owner
-- Personal Loan
-- Customer Satisfaction Score
+- Customer Satisfaction
+
+### Credit Card Dataset
+
+Contains transaction information including:
+
+- Revenue
+- Interest Earned
+- Transaction Amount
+- Card Category
+- Expenditure Type
+- Quarter
+- Week Number
+- Credit Limit
+
+Both datasets are connected through **client_num**, creating a relational model inside Power BI.
 
 ---
 
-# 🗄 Database Design
-
-Two relational tables were created inside PostgreSQL.
-
-```
-
-Customer_Detail
----------------
-client_num (PK)
-gender
-income
-education_level
-customer_job
-state_cd
-customer_age
-dependent_count
-...
-
-CreditCard_Detail
------------------
-client_num (FK)
-card_category
-revenue
-interest_earned
-credit_limit
-transaction_amount
-transaction_count
-quarter
-week_number
-...
-
-```
-
-Both tables are connected using
-
-```
-client_num
-```
-
-forming a **one-to-one relationship** inside Power BI.
-
----
-
-# ⚙ Database Workflow
+# ⚙️ Workflow
 
 ### Step 1
 
-Raw Excel files were converted into CSV format.
+Collected raw Excel datasets.
 
 ↓
 
 ### Step 2
 
-Created PostgreSQL database.
+Converted datasets into CSV format.
 
 ↓
 
 ### Step 3
 
-Created tables using SQL.
-
-Example:
+Created PostgreSQL database and tables.
 
 ```sql
-CREATE TABLE creditcard_detail(
-client_num BIGINT,
-card_category VARCHAR(20),
-annual_fees INT,
-activation_30_days INT,
-customer_acq_cost INT,
-week_start_date DATE,
-week_num VARCHAR(20),
-qtr VARCHAR(10),
-...
-);
+CREATE TABLE customer_detail (...);
+
+CREATE TABLE creditcard_detail (...);
 ```
 
----
+↓
 
 ### Step 4
 
-Imported CSV files using PostgreSQL COPY command.
-
-```sql
-COPY creditcard_detail
-
-FROM 'credit_card.csv'
-
-DELIMITER ','
-
-CSV HEADER;
-```
-
-Similarly,
+Imported CSV files using PostgreSQL.
 
 ```sql
 COPY customer_detail
-
 FROM 'customer.csv'
-
 DELIMITER ','
+CSV HEADER;
 
+COPY creditcard_detail
+FROM 'credit_card.csv'
+DELIMITER ','
 CSV HEADER;
 ```
 
----
+↓
 
 ### Step 5
 
-Verified imported records.
+Connected PostgreSQL with Power BI.
 
-```sql
-SELECT *
-
-FROM creditcard_detail
-
-LIMIT 100;
-```
-
----
+↓
 
 ### Step 6
 
-Connected PostgreSQL database with Power BI.
+Created relationships and data model.
 
----
+↓
 
 ### Step 7
 
-Created relationships.
-
-```
-Customer Detail
+Built DAX measures and interactive dashboards.
 
 ↓
 
-Client Number
+### Step 8
 
-↓
-
-Credit Card Detail
-
-```
+Published business insights through Power BI visualizations.
 
 ---
 
-# 🔄 Incremental Weekly Data Update
+# 🔄 Incremental Weekly Update (Week 52 → Week 53)
 
-Initially, the dashboard contained data till
-
-```
-Week 52
-
-24 December 2023
-```
-
-New weekly data became available for
-
-```
-Week 53
-
-31 December 2023
-```
-
-Instead of rebuilding the dashboard, the new records were imported using two new CSV files:
-
-```
-cc_add.csv
-
-cust_add.csv
-```
-
-These files were inserted into PostgreSQL using the same COPY command.
+The dashboard initially covered data through **24 Dec 2023 (Week 52)**. When **31 Dec 2023 (Week 53)** data became available, it was appended directly into PostgreSQL using two additional CSV files instead of rebuilding the report.
 
 ```sql
 COPY creditcard_detail
-
 FROM 'cc_add.csv'
-
 DELIMITER ','
-
 CSV HEADER;
-```
 
-```sql
 COPY customer_detail
-
 FROM 'cust_add.csv'
-
 DELIMITER ','
-
 CSV HEADER;
 ```
 
-After refreshing Power BI,
+Both files contributed **185 new records**, primarily Blue card customers.
 
-Initial Records
+| Metric | Week 52 | Week 53 | Growth |
+|---------|---------|---------|---------|
+| Total Records | 10,108 | 10,293 | **+185 (+1.83%)** |
+| Revenue | $55.32M | $56.52M | **+2.17%** |
+| Income | $575.91M | $587.60M | **+2.03%** |
+| Interest Earned | $7.84M | $7.98M | **+1.77%** |
+| Transaction Amount | $44.52M | $45.53M | **+2.27%** |
+| Transactions | 656K | 667K | **+1.68%** |
+| Customer Satisfaction | 3.19 | 3.19 | No Change |
 
-```
-10,108
-```
-
-↓
-
-Final Records
-
-```
-10,293
-```
-
-The dashboards updated automatically, demonstrating a real-world incremental data refresh workflow.
+After refreshing Power BI, every KPI card, chart, map, and dashboard visual reflected the newly imported records automatically without modifying the data model or report design.
 
 ---
 
-# 📈 Dashboard 1 — Customer Report
+# 📊 Dashboard Overview
 
-The Customer Dashboard provides insights into customer demographics, income distribution, satisfaction levels, and revenue contribution.
-
-## KPIs
-
-- Total Income
-- Customer Satisfaction Score
-- Revenue by Week
-- Revenue by Age Group
-- Revenue by Education
-- Revenue by Income Group
-- Revenue by Top States
-- Gender Distribution
-- Card Category Distribution
-- Dependency Analysis
+The solution consists of **two interactive Power BI dashboards**, each designed to answer different business questions while sharing a common PostgreSQL data model.
 
 ---
 
-## Customer Dashboard Features
+## 👥 Customer Report
 
-### Revenue Analysis
+The Customer Report focuses on customer demographics, income distribution, satisfaction, and revenue contribution across different customer segments.
+
+### Key Metrics
+
+- **Total Income:** $587.6M
+- **Net Revenue:** $56.52M
+- **Interest Earned:** $7.98M
+- **Customer Satisfaction:** 3.19
+
+### Dashboard Features
+
 - Weekly Revenue Trend
 - Revenue by Income Group
 - Revenue by Age Group
-- Revenue by Education Level
-- Revenue by State
-
-### Customer Segmentation
-- Gender-wise Analysis
-- Card Category Distribution
-- Income Distribution
-- Dependency Distribution
-
-### Geographic Analysis
-- Interactive map showing customer distribution across U.S. states.
-
-### Interactive Filters
-- Quarter
-- Gender
-- Card Category
-
----
-
-# 📊 Dashboard 2 — Transaction Report
-
-The Transaction Dashboard focuses on financial performance, transaction analysis, card usage, expenditure behavior, and quarterly business trends.
-
-## KPIs
-
-- Revenue
-- Interest Earned
-- Total Transaction Amount
-- Number of Transactions
-
----
-
-## Transaction Dashboard Features
-
-### Revenue Analysis
-
-- Quarterly Revenue Trend
-- Revenue by Card Category
-- Revenue by Card Type
-- Revenue by Expenditure Type
-- Revenue by Job Type
 - Revenue by Education
+- Revenue by State
+- Customer Segmentation
+- Dependency Analysis
+- Interactive U.S. Map
+- Dynamic slicers for Quarter, Gender, and Card Category
 
-### Transaction Analysis
+> **Dashboard Preview**
 
-- Total Transactions
-- Transaction Amount
-- Interest Earned
-- Revenue by Use Type
-- Quarterly Comparison
-
-### Interactive Filters
-
-- Week Number
-- Quarter
-- Gender
-
----
-
-# 📷 Dashboard Screenshots
-
-## Customer Dashboard
-
-> Add screenshot here
-
-```
+```text
 Images/customer_dashboard.png
 ```
 
 ---
 
-## Transaction Dashboard
+## 💳 Transaction Report
 
-> Add screenshot here
+The Transaction Report provides financial insights into transaction behavior, expenditure patterns, card performance, and quarterly business trends.
 
-```
+### Key Metrics
+
+- **Revenue:** $56.5M
+- **Interest Earned:** $7.98M
+- **Transaction Amount:** $45.53M
+- **Transactions:** 667K
+
+### Dashboard Features
+
+- Quarterly Revenue Analysis
+- Revenue by Card Category
+- Revenue by Card Type
+- Revenue by Expenditure Type
+- Revenue by Job Type
+- Revenue by Education
+- Revenue by Usage Type
+- Quarterly Transaction Comparison
+- Dynamic slicers for Week Number, Quarter, and Gender
+
+> **Dashboard Preview**
+
+```text
 Images/transaction_dashboard.png
 ```
 
 ---
 
-## Power BI Data Model
+# 💡 Key Business Insights
 
-> Add screenshot here
-
-```
-Images/data_model.png
-```
+The following insights were derived from the complete **10,293-record** dataset after incorporating the Week 53 update.
 
 ---
 
-## PostgreSQL Database
+## 💳 Card Portfolio
 
-> Add screenshot here
-
-```
-Images/postgresql_import.png
-```
+Blue-tier credit cards account for **83.1%** of total transaction value, followed by Silver (10.2%), Gold (4.6%), and Platinum (2.1%). Revenue is heavily concentrated in the entry-level product, highlighting an opportunity to increase adoption of premium card categories.
 
 ---
 
-## Week 53 Data Update
+## 👨‍👩‍👧 Customer Age
 
-> Add screenshot here
+Customers aged **40–50 years** contribute the largest share of revenue at **$24.7M (43.8%)**, while the **50–60** age group contributes **$18.6M (32.9%)**.
 
-```
-Images/week53_update.png
-```
+Together, customers between **40 and 60 years** generate nearly **77%** of total revenue.
 
 ---
 
-# 📊 Key Performance Indicators (KPIs)
+## 🎓 Education
 
-## Customer Dashboard
+Graduate customers contribute approximately **$23M (41%)** of total revenue, making them the highest-value education segment.
 
-| KPI | Description |
-|------|-------------|
-| Income | Total customer income |
-| Customer Satisfaction | Average satisfaction score |
-| Revenue by Week | Weekly revenue trend |
-| Revenue by Education | Revenue contribution by education |
-| Revenue by Age | Revenue by customer age group |
-| Revenue by State | Top performing states |
-| Revenue by Income Group | Revenue across income categories |
-| Dependency Analysis | Customer dependency distribution |
+Revenue decreases significantly for higher education levels such as Post-Graduate and Doctorate, indicating spending behavior is strongest among Graduate customers.
 
 ---
 
-## Transaction Dashboard
+## 💳 Transaction Method
 
-| KPI | Description |
-|------|-------------|
-| Revenue | Total generated revenue |
-| Interest Earned | Interest generated from customers |
-| Transaction Amount | Total amount transacted |
-| Transaction Count | Number of completed transactions |
-| Card Category | Revenue by card category |
-| Card Type | Revenue by card type |
-| Expenditure Type | Spending category analysis |
-| Job Type | Revenue by customer occupation |
+Customer spending is dominated by **Swipe transactions (62.6%)**, followed by Chip (31.1%) and Online transactions (6.3%).
+
+This suggests that traditional card-present transactions remain the preferred payment method.
 
 ---
 
-# 📈 Business Insights
+## 🛒 Spending Categories
 
-## Customer Insights
+The largest spending category is **Bills (24.5%)**, followed by:
 
-- Customers aged **40–50 years** contribute the highest revenue.
-- Graduate customers generate the maximum revenue among education groups.
-- Texas, New York, and California are the top revenue-generating states.
-- Female and male customers contribute almost equally to total revenue.
-- Customers with **Very High** income generate the highest revenue.
+- Entertainment
+- Fuel
+- Grocery
+- Food
 
----
-
-## Transaction Insights
-
-- Blue Card contributes the largest share of revenue.
-- Swipe transactions dominate compared to Chip and Online transactions.
-- Bills and Entertainment are the highest expenditure categories.
-- Businessmen and White-Collar professionals generate the highest revenue.
-- Quarter 4 records the strongest financial performance.
+Travel contributes the smallest proportion of overall spending.
 
 ---
 
-# 📊 Power BI Features Used
+## 💼 Occupation
 
-✔ Interactive Dashboards
+Businessman customers generate the highest revenue (**$18M**), followed by White-Collar professionals (**$10M**).
 
-✔ Drill Down
-
-✔ Slicers
-
-✔ KPI Cards
-
-✔ Map Visualization
-
-✔ Matrix Tables
-
-✔ Bar Charts
-
-✔ Line Charts
-
-✔ Treemap
-
-✔ Donut Chart
-
-✔ Conditional Formatting
-
-✔ Bookmarks
-
-✔ Cross Filtering
-
-✔ Data Modeling
-
-✔ Relationships
+These two occupational groups together contribute nearly half of the total transaction revenue.
 
 ---
 
-# 📐 Data Modeling
+## 🗺 Geographic Distribution
 
-The project follows a relational model.
+Texas, New York, and California each generate approximately **$13M** in revenue, making them the strongest-performing states in the customer portfolio.
 
-```
-
-Customer Detail
-
-        │
-
-        │ Client Number
-
-        ▼
-
-Credit Card Detail
-
-```
-
-Relationship Type
-
-```
-One-to-One
-```
-
-Primary Key
-
-```
-client_num
-```
+The geographic distribution indicates that business activity is concentrated within a relatively small number of states.
 
 ---
 
-# ⚡ Power Query Transformations
+## 👥 Gender Analysis
 
-The following transformations were performed before loading data:
+Revenue generated by Female and Male customers is almost identical, indicating a balanced customer base.
 
-- Data Type Conversion
-- Null Value Handling
-- Duplicate Removal
-- Column Renaming
-- Calculated Columns
-- Data Cleaning
-- Relationship Validation
+Although the overall contribution is nearly equal, weekly trends reveal slight variations between genders throughout the year.
 
 ---
 
-# 🧮 DAX Measures
+## 📈 Quarterly Performance
 
-Examples of DAX measures used in the project:
+Quarter 4 is the strongest-performing quarter.
+
+| Quarter | Revenue |
+|----------|---------:|
+| Q1 | $14.0M |
+| Q2 | $13.8M |
+| Q3 | $14.2M |
+| **Q4** | **$14.5M** |
+
+The higher revenue in Q4 suggests increased customer spending toward the end of the year.
+
+---
+
+## 💰 Income Groups
+
+Customers classified within the **Very High Income** segment contribute approximately **$21M (36.8%)** of total revenue.
+
+This single segment generates more revenue than the combined contribution of the Low, High, and Very Low income groups.
+
+---
+
+# 📈 Sample DAX Measures
 
 ```DAX
 Revenue =
 SUM(creditcard_detail[Revenue])
-```
 
-```DAX
 Interest Earned =
 SUM(creditcard_detail[interest_earned])
-```
 
-```DAX
 Total Transaction Amount =
 SUM(creditcard_detail[total_trans_amt])
-```
 
-```DAX
-Number of Transactions =
+Total Transactions =
 SUM(creditcard_detail[total_trans_ct])
-```
 
-```DAX
-Income =
+Customer Income =
 SUM(customer_detail[income])
-```
 
-```DAX
 Customer Satisfaction =
 AVERAGE(customer_detail[cust_satisfaction_score])
 ```
 
 ---
 
-# 🗃 SQL Operations Performed
+# 🚀 Running the Project
 
-### Database Creation
-
-```sql
-CREATE DATABASE creditcarddb;
-```
-
-### Table Creation
-
-- customer_detail
-- creditcard_detail
-
-### Data Import
-
-```sql
-COPY customer_detail
-FROM 'customer.csv'
-DELIMITER ','
-CSV HEADER;
-```
-
-```sql
-COPY creditcard_detail
-FROM 'credit_card.csv'
-DELIMITER ','
-CSV HEADER;
-```
-
-### Week 53 Update
-
-```sql
-COPY customer_detail
-FROM 'cust_add.csv'
-DELIMITER ','
-CSV HEADER;
-```
-
-```sql
-COPY creditcard_detail
-FROM 'cc_add.csv'
-DELIMITER ','
-CSV HEADER;
-```
-
-### Verification
-
-```sql
-SELECT *
-FROM creditcard_detail;
-```
-
----
-
-# 📁 Files Included
-
-```
-📦 Dataset
- ├── customer.csv
- ├── credit_card.csv
- ├── cust_add.csv
- └── cc_add.csv
-
-📦 SQL
- ├── create_tables.sql
- ├── import_data.sql
- └── queries.sql
-
-📦 Dashboard
- ├── Credit Card Customer Dashboard.pbix
- └── Credit Card Transaction Dashboard.pbix
-
-📦 Images
- ├── customer_dashboard.png
- ├── transaction_dashboard.png
- ├── postgresql_import.png
- ├── data_model.png
- └── week53_update.png
-```
-
----
-
-# 🚀 How to Run the Project
-
-### Step 1
-
-Clone the repository.
+1. Clone this repository.
 
 ```bash
-git clone https://github.com/yourusername/Credit-Card-Financial-Dashboard.git
+git clone https://github.com/Satyamanand1/Credit-Card-Financial-Dashboard.git
 ```
 
-### Step 2
+2. Open PostgreSQL (pgAdmin).
 
-Open PostgreSQL.
+3. Create a new database.
 
-### Step 3
+4. Execute the SQL script to create the required tables.
 
-Create the database.
+5. Import the CSV datasets using the provided SQL `COPY` commands.
 
-### Step 4
+6. Open the Power BI (`.pbix`) file.
 
-Run the SQL scripts.
+7. Update the PostgreSQL connection if required.
 
-### Step 5
-
-Import both CSV files.
-
-### Step 6
-
-Open the Power BI (.pbix) file.
-
-### Step 7
-
-Update the PostgreSQL credentials if required.
-
-### Step 8
-
-Click **Refresh**.
-
-The dashboards will populate automatically.
+8. Click **Refresh** to load the latest data into the dashboards.
 
 ---
 
 # 🎯 Skills Demonstrated
 
-- Business Intelligence
-- Dashboard Design
-- Data Visualization
-- SQL
-- PostgreSQL
+- Business Intelligence (BI)
+- Power BI Dashboard Development
+- SQL & PostgreSQL
+- ETL Pipeline Design
 - Data Modeling
-- ETL
-- Power Query
 - DAX
+- Power Query
 - KPI Development
-- Database Management
-- Data Cleaning
-- Data Analysis
-- Analytical Thinking
-- Reporting Automation
+- Data Visualization
 - Incremental Data Loading
+- Dashboard Automation
+- Business Analytics
 
 ---
 
-# 📚 Learning Outcomes
+# 🔮 Future Enhancements
 
-Through this project, I gained hands-on experience in:
-
-- Designing end-to-end BI solutions
-- Building relational databases in PostgreSQL
-- Importing CSV data using SQL COPY commands
-- Creating Power BI data models
-- Developing DAX measures
-- Designing interactive dashboards
-- Performing business performance analysis
-- Implementing incremental weekly data updates
-- Building production-style reporting workflows
-
----
-
-# 🔮 Future Improvements
-
-- Connect directly to a live PostgreSQL database.
-- Automate weekly refresh using Power BI Service.
-- Integrate Python for predictive analytics.
-- Add forecasting using Power BI Analytics.
-- Implement Row-Level Security (RLS).
-- Publish dashboards to the Power BI Service.
-- Create executive and mobile-friendly dashboard layouts.
+- Deploy dashboards using **Power BI Service**
+- Configure scheduled data refresh
+- Add Row-Level Security (RLS)
+- Integrate Python-based forecasting models
+- Build executive and mobile dashboard layouts
+- Connect directly to a live PostgreSQL server for real-time reporting
 
 ---
 
 # 👨‍💻 Author
 
-**Satyam Anand**
+## **Satyam Anand**
 
-📧 Email: satyamanand9555@gmail.com
+📧 **Email:** satyamanand9555@gmail.com
 
-💼 LinkedIn: https://www.linkedin.com/in/satyam-anand-sa9555/
+🔗 **LinkedIn:** https://www.linkedin.com/in/satyam-anand-sa9555/
 
-💻 GitHub: https://github.com/Satyamanand1
+💻 **GitHub:** https://github.com/Satyamanand1
 
 ---
 
-# ⭐ If you found this project useful, consider giving it a Star!
+## ⭐ Support
 
-It helps support the project and encourages future Business Intelligence and Data Analytics work.
+If you found this project helpful or informative, consider giving the repository a **⭐ Star**.
+
+Your support helps showcase the project and encourages the development of more Business Intelligence and Data Analytics solutions.
