@@ -274,9 +274,9 @@ The Customer Report focuses on customer demographics, income distribution, satis
 
 > **Dashboard Preview**
 
-```text
+
 Images/customer_dashboard.png
-```
+
 
 ---
 
@@ -305,9 +305,9 @@ The Transaction Report provides financial insights into transaction behavior, ex
 
 > **Dashboard Preview**
 
-```text
+
 Images/transaction_dashboard.png
-```
+
 
 ---
 
