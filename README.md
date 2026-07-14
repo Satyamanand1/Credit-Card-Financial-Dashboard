@@ -1,4 +1,4 @@
-# 💳 Credit Card Financial Dashboard
+# Credit Card Financial Dashboard
 
 <p align="center">
 
@@ -13,7 +13,7 @@
 
 ---
 
-# 📖 Overview
+# Overview
 
 ![Credit Card Financial Dashboard](Dashboard/Credit_Card_Financial_Dashboard.pbix)
 
@@ -23,11 +23,11 @@ The dashboard provides **real-time weekly insights** into revenue, customer demo
 
 ![Transaction Report Dashboard Preview](Images/transaction_dashboard.png)
 
-![Updated Customer Report Week53 Dashboard Preview](Images/week53_update.png)
+![Updated Customer Report Week53 Dashboard Preview](Images/customer_dashboard.png)
 
 ---
 
-# 🎯 Project Highlights
+# Project Highlights
 
 - Built an interactive **Power BI dashboard** with two analytical reports.
 - Imported and managed datasets using **PostgreSQL**.
@@ -40,7 +40,7 @@ The dashboard provides **real-time weekly insights** into revenue, customer demo
 
 ---
 
-# 🏗️ Project Architecture
+# Project Architecture
 
 ```text
                 Excel Dataset
@@ -116,7 +116,7 @@ Credit-Card-Financial-Dashboard
 
 ---
 
-# 🗄️ Data Pipeline
+# Data Pipeline
 
 The project uses two relational datasets:
 
@@ -219,7 +219,7 @@ Published business insights through Power BI visualizations.
 
 ---
 
-# 🔄 Incremental Weekly Update (Week 52 → Week 53)
+# Incremental Weekly Update (Week 52 → Week 53)
 
 The dashboard initially covered data through **24 Dec 2023 (Week 52)**. When **31 Dec 2023 (Week 53)** data became available, it was appended directly into PostgreSQL using two additional CSV files instead of rebuilding the report.
 
@@ -251,13 +251,16 @@ After refreshing Power BI, every KPI card, chart, map, and dashboard visual refl
 
 ---
 
-# 📊 Dashboard Overview
+# Dashboard Overview
 
 The solution consists of **two interactive Power BI dashboards**, each designed to answer different business questions while sharing a common PostgreSQL data model.
 
 ---
 
 ## 👥 Customer Report
+
+![Customer Report Dashboard Preview](Images/customer_dashboard.png)
+
 
 The Customer Report focuses on customer demographics, income distribution, satisfaction, and revenue contribution across different customer segments.
 
@@ -280,12 +283,12 @@ The Customer Report focuses on customer demographics, income distribution, satis
 - Interactive U.S. Map
 - Dynamic slicers for Quarter, Gender, and Card Category
 
-![Customer Report Dashboard Preview](Images/customer_dashboard.png)
-
-
 ---
 
 ## 💳 Transaction Report
+
+![Transaction Report Dashboard Preview](Images/transaction_dashboard.png)
+
 
 The Transaction Report provides financial insights into transaction behavior, expenditure patterns, card performance, and quarterly business trends.
 
@@ -308,12 +311,9 @@ The Transaction Report provides financial insights into transaction behavior, ex
 - Quarterly Transaction Comparison
 - Dynamic slicers for Week Number, Quarter, and Gender
 
-![Transaction Report Dashboard Preview](Images/transaction_dashboard.png)
-
-
 ---
 
-# 💡 Key Business Insights
+# Key Business Insights
 
 The following insights were derived from the complete **10,293-record** dataset after incorporating the Week 53 update.
 
@@ -411,7 +411,7 @@ This single segment generates more revenue than the combined contribution of the
 
 ---
 
-# 📈 Sample DAX Measures
+# Sample DAX Measures
 
 ```DAX
 Revenue =
@@ -435,13 +435,9 @@ AVERAGE(customer_detail[cust_satisfaction_score])
 
 ---
 
-# 🚀 Running the Project
+# Running the Project
 
 1. Clone this repository.
-
-```bash
-git clone https://github.com/Satyamanand1/Credit-Card-Financial-Dashboard.git
-```
 
 2. Open PostgreSQL (pgAdmin).
 
@@ -459,7 +455,7 @@ git clone https://github.com/Satyamanand1/Credit-Card-Financial-Dashboard.git
 
 ---
 
-# 🎯 Skills Demonstrated
+# Skills Demonstrated
 
 - Business Intelligence (BI)
 - Power BI Dashboard Development
@@ -476,7 +472,7 @@ git clone https://github.com/Satyamanand1/Credit-Card-Financial-Dashboard.git
 
 ---
 
-# 🔮 Future Enhancements
+# Future Enhancements
 
 - Deploy dashboards using **Power BI Service**
 - Configure scheduled data refresh
@@ -487,7 +483,7 @@ git clone https://github.com/Satyamanand1/Credit-Card-Financial-Dashboard.git
 
 ---
 
-# 👨‍💻 Author
+# Author
 
 ## **Satyam Anand**
 
@@ -499,7 +495,7 @@ git clone https://github.com/Satyamanand1/Credit-Card-Financial-Dashboard.git
 
 ---
 
-## ⭐ Support
+## Support
 
 If you found this project helpful or informative, consider giving the repository a **⭐ Star**.
 
